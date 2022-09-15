@@ -54,22 +54,6 @@ function App() {
         var num = politica[Math.floor(Math.random() * politica.length)];
         return num;
     }
-
-    //Funcion que obtiene un nivel de contienda al azar
-    // function handleContiendaChange(status) {
-    //     //setcontienda(getRandomContienda);
-    //     if (year === 0) {
-    //         setcontienda(getRandomContienda);
-    //     }
-    //     setcontienda("Bajo");
-    // }
-
-    //Funcion que genera un nivel de contienda al azar
-    // function getRandomContienda() {
-    //     var contienda = ["Baja", "Alta"];
-    //     var num = contienda[Math.floor(Math.random() * contienda.length)];
-    //     return num;
-    // }
   
     //Funcion que monitorea el tipo de politica y cambia el nivel de contienda
     function handlePoliticaCoercitiva(){
@@ -153,25 +137,23 @@ function App() {
         setcantProtestas(cantProtestas + 1);
     }
 
-    //Cambios relacionados con el componente de pueblo
-    // useEffect(() => {
-    //     handlePoliticaCoercitiva();
-    //     //handleContiendaChange();
-    // });
-
     //Cambios relacionados con el componente de gobierno
     
     useEffect(() => {
         startSimulation();
     },[]);
 
-    useEffect(() => {
-        controlSimulation();
-        var relojt = setInterval(() => {
-            updateMonth();
-        }, MES);
-    },[mes]); 
+    // useEffect(() => {
+    
+    // },[mes]); 
    
+    //startSimulation();
+
+    setInterval(() => {
+        updateMonth();
+        controlSimulation();
+    }, MES);
+
     function startSimulation(){
         handlePartidoChange();
         setpolitica(getRandomPolitica);
